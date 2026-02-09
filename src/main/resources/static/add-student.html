@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student - Student Management System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap"></i> Student Management System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="students.html">
+                            <i class="fas fa-users"></i> View Students
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="add-student.html">
+                            <i class="fas fa-user-plus"></i> Add Student
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-4">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="display-4">
+                    <i class="fas fa-user-plus text-primary"></i> <span id="formTitle">Add New Student</span>
+                </h1>
+                <p class="text-muted">Fill in the form below to add a new student</p>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-edit"></i> Student Information
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="studentForm">
+                            <input type="hidden" id="studentId">
+                            
+                            <!-- Personal Information -->
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h5 class="text-primary">
+                                        <i class="fas fa-user"></i> Personal Information
+                                    </h5>
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">
+                                        First Name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="firstName" required
+                                           minlength="2" maxlength="50">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid first name (2-50 characters).
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">
+                                        Last Name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="lastName" required
+                                           minlength="2" maxlength="50">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid last name (2-50 characters).
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">
+                                        Email <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="email" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">
+                                        Phone Number <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="tel" class="form-control" id="phone" required
+                                           pattern="[0-9]{10}" maxlength="10">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid 10-digit phone number.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="dateOfBirth" class="form-label">
+                                        Date of Birth <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="date" class="form-control" id="dateOfBirth" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid date of birth.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label">
+                                        Gender <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="gender" required>
+                                        <option value="">Choose...</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a gender.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="address" class="form-label">
+                                        Address <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="address" rows="3" required
+                                              maxlength="200"></textarea>
+                                    <div class="invalid-feedback">
+                                        Please provide an address (max 200 characters).
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Academic Information -->
+                            <div class="row mb-4 mt-4">
+                                <div class="col-12">
+                                    <h5 class="text-primary">
+                                        <i class="fas fa-graduation-cap"></i> Academic Information
+                                    </h5>
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="course" class="form-label">
+                                        Course <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="course" required>
+                                        <option value="">Choose...</option>
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Information Technology">Information Technology</option>
+                                        <option value="Electrical Engineering">Electrical Engineering</option>
+                                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                        <option value="Civil Engineering">Civil Engineering</option>
+                                        <option value="Electronics Engineering">Electronics Engineering</option>
+                                        <option value="Chemical Engineering">Chemical Engineering</option>
+                                        <option value="Business Administration">Business Administration</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a course.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="year" class="form-label">
+                                        Year <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="year" required>
+                                        <option value="">Choose...</option>
+                                        <option value="1">1st Year</option>
+                                        <option value="2">2nd Year</option>
+                                        <option value="3">3rd Year</option>
+                                        <option value="4">4th Year</option>
+                                        <option value="5">5th Year</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a year.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="statusGroup" style="display: none;">
+                                    <label for="status" class="form-label">
+                                        Status <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="status">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <hr>
+                                    <div class="d-flex gap-2">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-save"></i> <span id="submitBtnText">Add Student</span>
+                                        </button>
+                                        <button type="reset" class="btn btn-secondary btn-lg">
+                                            <i class="fas fa-redo"></i> Reset
+                                        </button>
+                                        <a href="students.html" class="btn btn-outline-secondary btn-lg">
+                                            <i class="fas fa-times"></i> Cancel
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/config.js"></script>
+    <script src="js/add-student.js"></script>
+</body>
+</html>
